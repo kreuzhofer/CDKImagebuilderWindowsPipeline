@@ -1,0 +1,15 @@
+name: InstallChocoDocument
+description: This document installs Chocolatey for Windows.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: InstallChocoStep
+        action: ExecutePowerShell
+        inputs:
+          commands:
+            - Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+
+
